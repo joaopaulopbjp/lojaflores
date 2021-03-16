@@ -14,8 +14,7 @@ import br.edu.ifpb.dac.fornecedor.modelo.Pedido;
 import br.edu.ifpb.dac.fornecedor.modelo.dto.ItemDoPedidoDTO;
 import br.edu.ifpb.dac.fornecedor.servicos.PedidoService;
 
-@RestController
-@RequestMapping("pedido")
+
 public class PedidoController {
 
 	@Autowired

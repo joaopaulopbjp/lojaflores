@@ -11,8 +11,7 @@ import br.edu.ifpb.dac.fornecedor.modelo.Produto;
 import br.edu.ifpb.dac.fornecedor.servicos.ProdutoService;
 
 
-@RestController
-@RequestMapping("/produto")
+
 public class ProdutoController {
 
 	@Autowired
