@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import br.edu.ifpb.dac.loja.cliente.FornecedorCliente;
 import br.edu.ifpb.dac.loja.modelo.Compra;
 import br.edu.ifpb.dac.loja.modelo.CompraState;
 import br.edu.ifpb.dac.loja.modelo.dto.CompraDTO;
@@ -17,15 +16,10 @@ import br.edu.ifpb.dac.loja.repositorio.CompraRepository;
 
 @Service
 public class CompraService {
-	
-//	@Autowired
-//	private RestTemplate restTemplate;
+
 	
 //	@Autowired
 //	private DiscoveryClient eurekaCliente;
-	
-	@Autowired
-	private FornecedorCliente fornecedorCliente;
 	
 	@Autowired
 	private CompraRepository compraRepository;
@@ -33,21 +27,15 @@ public class CompraService {
 	public Compra realizarCompra(CompraDTO compra) {
 		System.out.println("CompraService_realizarCompra_estado: "+compra.getEndereco().getEstado());
 	
-		InfoFornecedorDTO info = fornecedorCliente.buscaInformacoesPorEstado(compra.getEndereco().getEstado());
+//		InfoFornecedorDTO info = fornecedorCliente.buscaInformacoesPorEstado(compra.getEndereco().getEstado());
 	
-		System.out.println("Endereço fornecedor: "+info.getEndereco());
+//		System.out.println("Endereço fornecedor: "+info.getEndereco());
 
 		Compra compraSalva = new Compra();
 		compraSalva.setState(CompraState.RECEBIDO);
 		compraSalva.setEnderecoDestino(compra.getEndereco().toString());
 		compraRepository.save(compraSalva);
 		compra.setCompraId(compraSalva.getId());
-		
-		InfoPedidoDTO pedido = fornecedorCliente.realizaPedido(compra.getItens());
-		compraSalva.setState(CompraState.PEDIDO_REALIZADO);
-		compraSalva.setPedidoId(pedido.getId());
-		compraSalva.setTempoDePreparo(pedido.getTempoDePreparo());
-		compraRepository.save(compraSalva);
 
 		return compraSalva;
 	}

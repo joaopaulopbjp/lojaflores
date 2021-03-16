@@ -10,14 +10,12 @@ import br.edu.ifpb.dac.loja.modelo.dto.CompraDTO;
 import br.edu.ifpb.dac.loja.servico.CompraService;
 
 @RestController
-@RequestMapping("compra")
 public class CompraController {
 	
 	@Autowired
 	private CompraService compraService;
 
-	@PostMapping
-	public void realizaCompra(@RequestBody CompraDTO compra) {
+	public void realizaCompra(CompraDTO compra) {
 		System.out.println("CompraController_realizarCompra. ");
 		compraService.realizarCompra(compra);
 	}
