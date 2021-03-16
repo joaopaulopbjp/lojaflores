@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ifpb.dac.fornecedor.modelo.InfoFornecedor;
 import br.edu.ifpb.dac.fornecedor.servicos.InfoService;
 
-@RestController
-@RequestMapping("/info")
+
 public class InfoController {
 
 	@Autowired
