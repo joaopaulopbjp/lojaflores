@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ifpb.dac.loja.modelo.dto.CompraDTO;
 import br.edu.ifpb.dac.loja.servico.CompraService;
 
-@RestController
 public class CompraController {
 	
 	@Autowired
