@@ -11,7 +11,6 @@ import br.edu.ifpb.dac.fornecedor.modelo.Produto;
 import br.edu.ifpb.dac.fornecedor.servicos.ProdutoService;
 
 
-
 public class ProdutoController {
 
 	@Autowired
@@ -19,5 +18,9 @@ public class ProdutoController {
 	
 	public List<Produto> getProdutosPorEstado( String estado) {
 		return produtoService.getProdutosPorEstado(estado);
+	}
+	
+	public List<Produto> listaTodosProdutos(){
+		return produtoService.getTodosProdutos();
 	}
 }
