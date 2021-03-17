@@ -9,11 +9,8 @@ import br.edu.ifpb.dac.loja.modelo.dto.ProdutoDTO;
 
 @Service
 public class CatalogoService {
-	
-	@Autowired
-	private FornecedorCliente fornecedorCliente;
 
 	public List<ProdutoDTO> consultaCatalogoProdutos() {
-		return fornecedorCliente.listaTodosProdutos();
+		return null;
 	}
 }
